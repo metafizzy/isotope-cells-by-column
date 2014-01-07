@@ -1,13 +1,13 @@
 {
   "name": "isotope-cells-by-column",
   "main": "cells-by-column.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "authors": [
     "David DeSandro"
   ],
   "description": "cellsByColumn layout mode for Isotope",
   "dependencies": {
-    "isotope": "metafizzy/isotope#2.0.0-beta.6"
+    "isotope": ">=2.0.0-beta.6"
   },
   "keywords": [
     "layout",
