@@ -50,7 +50,7 @@ function cellsByColumnDefinition( LayoutMode ) {
 if ( typeof define === 'function' && define.amd ) {
   // AMD
   define( [
-      '../layout-mode'
+      'isotope/js/layout-mode'
     ],
     cellsByColumnDefinition );
 } else {
