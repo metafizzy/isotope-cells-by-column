@@ -39,8 +39,8 @@ function cellsByColumnDefinition( LayoutMode ) {
     };
   };
 
-  CellsByColumn.prototype.resize = function() {
-    this.resizeVertical();
+  CellsByColumn.prototype.needsResizeLayout = function() {
+    return this.needsVerticalResizeLayout();
   };
 
   return CellsByColumn;
