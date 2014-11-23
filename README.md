@@ -15,3 +15,5 @@ $('#container').isotope({
 ## Install
 
 Install with [Bower](http://bower.io) `bower install isotope-cells-by-column`
+
+[Install with npm](https://www.npmjs.org/package/isotope-cells-by-column): `npm install isotope-cells-by-column`
