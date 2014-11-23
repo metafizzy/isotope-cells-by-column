@@ -1,6 +1,6 @@
 /*!
  * cellsByColumn layout mode for Isotope
- * v1.1.0
+ * v1.1.1
  * http://isotope.metafizzy.co/layout-modes/cellsbycolumn.html
  */
 
