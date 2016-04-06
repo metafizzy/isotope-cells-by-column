@@ -1,20 +1,39 @@
 /*!
  * cellsByColumn layout mode for Isotope
- * v1.1.2
+ * v1.1.3
  * http://isotope.metafizzy.co/layout-modes/cellsbycolumn.html
  */
 
 /*jshint browser: true, devel: false, strict: true, undef: true, unused: true */
 
-( function( window ) {
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( typeof define === 'function' && define.amd ) {
+    // AMD
+    define( [
+        'isotope/js/layout-mode'
+      ],
+      factory );
+  } else if ( typeof exports === 'object' ) {
+    // CommonJS
+    module.exports = factory(
+      require('isotope-layout/js/layout-mode')
+    );
+  } else {
+    // browser global
+    factory(
+      window.Isotope.LayoutMode
+    );
+  }
 
-'use strict';
-
-function cellsByColumnDefinition( LayoutMode ) {
+}( window, function factory( LayoutMode ) {
+  'use strict';
 
   var CellsByColumn = LayoutMode.create( 'cellsByColumn' );
+  var proto = CellsByColumn.prototype;
 
-  CellsByColumn.prototype._resetLayout = function() {
+  proto._resetLayout = function() {
     // reset properties
     this.itemIndex = 0;
     // measurements
@@ -25,7 +44,7 @@ function cellsByColumnDefinition( LayoutMode ) {
     this.rows = Math.max( this.rows, 1 );
   };
 
-  CellsByColumn.prototype._getItemLayoutPosition = function( item ) {
+  proto._getItemLayoutPosition = function( item ) {
     item.getSize();
     var col = Math.floor( this.itemIndex / this.rows );
     var row = this.itemIndex % this.rows;
@@ -36,37 +55,16 @@ function cellsByColumnDefinition( LayoutMode ) {
     return { x: x, y: y };
   };
 
-  CellsByColumn.prototype._getContainerSize = function() {
+  proto._getContainerSize = function() {
     return {
       width: Math.ceil( this.itemIndex / this.rows ) * this.columnWidth
     };
   };
 
-  CellsByColumn.prototype.needsResizeLayout = function() {
+  proto.needsResizeLayout = function() {
     return this.needsVerticalResizeLayout();
   };
 
   return CellsByColumn;
 
-}
-
-if ( typeof define === 'function' && define.amd ) {
-  // AMD
-  define( [
-      'isotope/js/layout-mode'
-    ],
-    cellsByColumnDefinition );
-} else if ( typeof exports === 'object' ) {
-  // CommonJS
-  module.exports = cellsByColumnDefinition(
-    require('isotope-layout/js/layout-mode')
-  );
-} else {
-  // browser global
-  cellsByColumnDefinition(
-    window.Isotope.LayoutMode
-  );
-}
-
-
-})( window );
+}));
