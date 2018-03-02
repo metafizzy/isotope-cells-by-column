@@ -2,11 +2,11 @@
   "name": "isotope-cells-by-column",
   "main": "cells-by-column.js",
   "authors": [
-    "David DeSandro / Metafizzy"
+    "David DeSandro"
   ],
   "description": "cellsByColumn layout mode for Isotope",
   "dependencies": {
-    "isotope": ">=2.1 <4.0"
+    "isotope-layout": ">=2.1 <4.0"
   },
   "keywords": [
     "layout",
